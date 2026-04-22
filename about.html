@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Aura</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M50 5 L95 25 L95 75 L50 95 L5 75 L5 25 Z' stroke='%23050505' stroke-width='8'/><circle cx='50' cy='50' r='18' fill='%23ff3366'/></svg>">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="noise-overlay"></div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="preloader">
+      <div class="preloader-text">ABOUT.</div>
+    </div>
+
+    <canvas id="webgl"></canvas>
+    
+    <div class="navbar-wrap">
+      <nav class="navbar">
+        <a href="/index.html" class="logo">
+          <svg class="aura-icon" viewBox="0 0 100 100" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 5 L95 25 L95 75 L50 95 L5 75 L5 25 Z" stroke="currentColor" stroke-width="8"/>
+            <circle cx="50" cy="50" r="18" fill="var(--accent)"/>
+          </svg>
+          AURA
+        </a>
+        <div class="nav-links">
+          <a href="/index.html" class="nav-item">Home</a>
+          <a href="/about.html" class="nav-item active">About</a>
+          <a href="/services.html" class="nav-item">Services</a>
+          <a href="/contact.html" class="nav-item">Contact</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="content-wrapper">
+      <section class="section" style="padding-top: 25vh;">
+        <h1 class="huge-title" style="font-size: clamp(3rem, 8vw, 8rem);" data-parallax="0.6">WE BUILD THE UNSEEN</h1>
+        <p class="sub-title" data-parallax="0.3">AURA is a collective of visionary engineers defining the edge of data infrastructure.</p>
+      </section>
+
+      <section class="section" style="padding-top: 0; padding-bottom: 0;">
+        <div class="parallax-wrap" data-parallax="0.1">
+          <div class="parallax-inner" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop');"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="adv-grid">
+          <div class="adv-card span-6" data-parallax="0.1">
+            <h3 class="card-title">Engineering Excellence</h3>
+            <p class="card-desc">Our entire stack is custom-built. No boilerplate. No compromises. We write raw code to achieve performance that others deem impossible.</p>
+          </div>
+          <div class="adv-card span-6" data-parallax="-0.1">
+            <h3 class="card-title">Design Meets Data</h3>
+            <p class="card-desc">We believe that developer tools shouldn't look like spreadsheets. Every interaction in AURA is designed to feel cinematic and responsive.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

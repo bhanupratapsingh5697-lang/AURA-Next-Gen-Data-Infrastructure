@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | Aura</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M50 5 L95 25 L95 75 L50 95 L5 75 L5 25 Z' stroke='%23050505' stroke-width='8'/><circle cx='50' cy='50' r='18' fill='%23ff3366'/></svg>">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="noise-overlay"></div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="preloader">
+      <div class="preloader-text">SERVICES.</div>
+    </div>
+
+    <canvas id="webgl"></canvas>
+    
+    <div class="navbar-wrap">
+      <nav class="navbar">
+        <a href="/index.html" class="logo">
+          <svg class="aura-icon" viewBox="0 0 100 100" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 5 L95 25 L95 75 L50 95 L5 75 L5 25 Z" stroke="currentColor" stroke-width="8"/>
+            <circle cx="50" cy="50" r="18" fill="var(--accent)"/>
+          </svg>
+          AURA
+        </a>
+        <div class="nav-links">
+          <a href="/index.html" class="nav-item">Home</a>
+          <a href="/about.html" class="nav-item">About</a>
+          <a href="/services.html" class="nav-item active">Services</a>
+          <a href="/contact.html" class="nav-item">Contact</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="content-wrapper">
+      <section class="section" style="height: 100vh; justify-content: center; align-items: center; text-align: center;">
+        <p style="text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 2rem;" data-parallax="-0.5">Scroll down to explore</p>
+        <h1 class="huge-title" data-parallax="0.8">OUR PLATFORM</h1>
+      </section>
+
+      <div class="horizontal-scroll-wrapper">
+        <div class="horizontal-scroll-container">
+          <div class="horizontal-panel">
+            <h2 style="font-size: clamp(6rem, 15vw, 15rem); line-height: 1;">01. INGESTION</h2>
+          </div>
+          <div class="horizontal-panel" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);">
+            <div style="max-width: 600px;">
+              <h2 style="font-size: 3rem; margin-bottom: 2rem;">02. PROCESSING</h2>
+              <p style="font-size: 1.5rem; color: var(--text-muted);">Real-time stream processing that dynamically scales across our global edge network. Sub-millisecond latency guaranteed.</p>
+            </div>
+          </div>
+          <div class="horizontal-panel">
+            <h2 style="font-size: clamp(6rem, 15vw, 15rem); line-height: 1;">03. PREDICTION</h2>
+          </div>
+        </div>
+      </div>
+      
+      <section class="section" style="height: 100vh; align-items: center; text-align: center;">
+        <h2 style="font-size: 4rem; margin-bottom: 3rem;">Ready to deploy?</h2>
+        <a href="#" class="btn-magnetic"><span class="btn-text">START BUILDING</span></a>
+      </section>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
