@@ -59,17 +59,13 @@ window.addEventListener('load', () => {
     ease: 'power4.out'
   }, 'reveal+=0.5');
 
-  // Mobile menu injection
-  const navbar = document.querySelector('.navbar');
-  if (navbar && window.innerWidth <= 768) {
-    const toggle = document.createElement('div');
-    toggle.className = 'menu-toggle';
-    toggle.innerHTML = '<span></span><span></span>';
-    navbar.insertBefore(toggle, navbar.querySelector('.nav-links'));
-    
-    const navLinks = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => {
+  // Mobile Menu Logic
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
     });
   }
 });
