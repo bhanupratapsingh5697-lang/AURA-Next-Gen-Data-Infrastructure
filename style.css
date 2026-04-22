@@ -78,6 +78,16 @@ body, html {
   border-color: transparent;
 }
 
+/* TOUCH DEVICE FIX */
+@media (pointer: coarse) {
+  body, html, .btn-magnetic {
+    cursor: auto !important;
+  }
+  .cursor, .cursor-follower {
+    display: none !important;
+  }
+}
+
 #webgl {
   position: fixed;
   top: 0;
@@ -116,7 +126,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .huge-title {
-  font-size: clamp(4rem, 12vw, 12rem);
+  font-size: clamp(3.5rem, 10vw, 12rem);
   font-weight: 900;
   letter-spacing: -0.06em;
   margin-bottom: 2rem;
@@ -128,7 +138,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .sub-title {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
   font-weight: 400;
   color: var(--text-muted);
   max-width: 800px;
@@ -169,6 +179,7 @@ h1, h2, h3, h4, .logo {
   border-radius: 100px;
   padding: 1rem 2.5rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
 }
 
 .nav-links {
@@ -201,6 +212,60 @@ h1, h2, h3, h4, .logo {
   width: 100%;
 }
 
+/* MOBILE NAVBAR OVERRIDE */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--text);
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .navbar-wrap {
+    width: 95%;
+    top: 1rem;
+  }
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    gap: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .nav-links.active {
+    display: flex;
+    animation: fadeInDown 0.3s ease forwards;
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .btn-magnetic {
   display: inline-flex;
   align-items: center;
@@ -216,10 +281,18 @@ h1, h2, h3, h4, .logo {
   letter-spacing: 0.1em;
   position: relative;
   overflow: hidden;
-  cursor: none;
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
   transition: box-shadow 0.3s;
 }
+
+@media (max-width: 768px) {
+  .btn-magnetic {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}
+
 .btn-magnetic:hover {
   box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
@@ -243,6 +316,13 @@ h1, h2, h3, h4, .logo {
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 5vw;
+    min-height: 70vh;
+  }
+}
+
 .adv-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -260,6 +340,20 @@ h1, h2, h3, h4, .logo {
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+}
+
+@media (max-width: 768px) {
+  .adv-grid {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .adv-card {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  .adv-card h3[style*="font-size: 5rem"] {
+    font-size: 3rem !important;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -282,6 +376,10 @@ h1, h2, h3, h4, .logo {
   pointer-events: none;
 }
 
+@media (pointer: coarse) {
+  .adv-card::before { display: none; }
+}
+
 .adv-card:hover::before {
   opacity: 1;
 }
@@ -296,6 +394,10 @@ h1, h2, h3, h4, .logo {
   margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .card-title { font-size: 1.8rem; margin-bottom: 1rem; }
+}
+
 .card-desc {
   font-size: 1.2rem;
   color: var(--text-muted);
@@ -308,6 +410,11 @@ h1, h2, h3, h4, .logo {
   width: 100%;
   height: 500px;
 }
+
+@media (max-width: 768px) {
+  .parallax-wrap { height: 300px; }
+}
+
 .parallax-inner {
   position: absolute;
   top: -20%;
@@ -341,11 +448,18 @@ h1, h2, h3, h4, .logo {
 }
 
 .horizontal-panel h2 {
-  font-size: clamp(6rem, 15vw, 15rem);
+  font-size: clamp(3rem, 15vw, 15rem);
   white-space: nowrap;
   letter-spacing: -0.05em;
   color: transparent;
   -webkit-text-stroke: 2px var(--text);
+}
+
+@media (max-width: 768px) {
+  .horizontal-scroll-wrapper { height: auto; overflow: visible; }
+  .horizontal-scroll-container { width: 100%; flex-direction: column; }
+  .horizontal-panel { width: 100%; height: auto; padding: 4rem 5vw; }
+  .horizontal-panel h2 { white-space: normal; }
 }
 
 .adv-form input, .adv-form textarea {
@@ -360,6 +474,10 @@ h1, h2, h3, h4, .logo {
   margin-bottom: 2rem;
   border-radius: 0;
   transition: border-color 0.3s;
+}
+
+@media (max-width: 768px) {
+  .adv-form input, .adv-form textarea { font-size: 1rem; padding: 1rem 0; }
 }
 
 .adv-form input:focus, .adv-form textarea:focus {

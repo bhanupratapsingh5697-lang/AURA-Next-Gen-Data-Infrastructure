@@ -58,6 +58,20 @@ window.addEventListener('load', () => {
     duration: 1.5,
     ease: 'power4.out'
   }, 'reveal+=0.5');
+
+  // Mobile menu injection
+  const navbar = document.querySelector('.navbar');
+  if (navbar && window.innerWidth <= 768) {
+    const toggle = document.createElement('div');
+    toggle.className = 'menu-toggle';
+    toggle.innerHTML = '<span></span><span></span>';
+    navbar.insertBefore(toggle, navbar.querySelector('.nav-links'));
+    
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
 });
 
 const cursor = document.querySelector('.cursor');
@@ -279,16 +293,20 @@ const horizontalScroll = document.querySelector('.horizontal-scroll-wrapper');
 if (horizontalScroll) {
   const container = document.querySelector('.horizontal-scroll-container');
   
-  gsap.to(container, {
-    x: () => -(container.scrollWidth - window.innerWidth) + "px",
-    ease: "none",
-    scrollTrigger: {
-      trigger: horizontalScroll,
-      start: "top top",
-      end: () => "+=" + (container.scrollWidth - window.innerWidth),
-      scrub: 1,
-      pin: true,
-      anticipatePin: 1
+  ScrollTrigger.matchMedia({
+    "(min-width: 769px)": function() {
+      gsap.to(container, {
+        x: () => -(container.scrollWidth - window.innerWidth) + "px",
+        ease: "none",
+        scrollTrigger: {
+          trigger: horizontalScroll,
+          start: "top top",
+          end: () => "+=" + (container.scrollWidth - window.innerWidth),
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1
+        }
+      });
     }
   });
 }
